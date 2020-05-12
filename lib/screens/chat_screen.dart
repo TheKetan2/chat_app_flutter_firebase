@@ -37,9 +37,7 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: StreamBuilder(
-        stream: Firestore.instance
-            .collection('chats/WJtXsfXnb4iRu38sDbEM/messages')
-            .snapshots(),
+        stream: Firestore.instance.collection('/chats').snapshots(),
         builder: (ctx, streamSnapshot) {
           if (streamSnapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -60,7 +58,7 @@ class ChatScreen extends StatelessWidget {
         child: Icon(Icons.add),
         onPressed: () {
           Firestore.instance
-              .collection('chats/WJtXsfXnb4iRu38sDbEM/messages')
+              .collection('/chats')
               .add({'text': 'This was added by clicking the button!'});
         },
       ),

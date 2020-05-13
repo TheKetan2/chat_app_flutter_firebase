@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'FlutterChat',
       theme: ThemeData(
         primarySwatch: Colors.pink,
@@ -25,15 +26,13 @@ class MyApp extends StatelessWidget {
         ),
       ),
       home: StreamBuilder(
-        stream: FirebaseAuth.instance.onAuthStateChanged,
-        builder: (ctx, userSnapshot) {
-          if (userSnapshot.hasData) {
-            return ChatScreen();
-          } else {
+          stream: FirebaseAuth.instance.onAuthStateChanged,
+          builder: (ctx, userSnapshot) {
+            if (userSnapshot.hasData) {
+              return ChatScreen();
+            }
             return AuthScreen();
-          }
-        },
-      ),
+          }),
     );
   }
 }

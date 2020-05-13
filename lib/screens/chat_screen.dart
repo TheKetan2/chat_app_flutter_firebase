@@ -1,5 +1,7 @@
+import 'package:chat_app_flutter_firebase/widgets/chat/messages.dart';
+import 'package:chat_app_flutter_firebase/widgets/chat/new_message.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -7,8 +9,7 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text("Flutter Chat"),
+        title: Text('FlutterChat'),
         actions: [
           DropdownButton(
             icon: Icon(
@@ -37,43 +38,15 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
-      /*
-      
-      Column(
-        children: <Widget>[
-          Expanded(
-            child: Messages(),
-          ),
-        ],
-      ),
-       */
-      body: StreamBuilder(
-        stream: Firestore.instance
-            .collection('chats/46nlhmiRIajSGjMKxpdo/messages')
-            .snapshots(),
-        builder: (ctx, streamSnapshot) {
-          if (streamSnapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          final documents = streamSnapshot.data.documents;
-          return ListView.builder(
-            itemCount: documents.length,
-            itemBuilder: (ctx, index) => Container(
-              padding: EdgeInsets.all(8),
-              child: Text(documents[index]['text']),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Messages(),
             ),
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          Firestore.instance
-              .collection('chats/46nlhmiRIajSGjMKxpdo/messages')
-              .add({'text': 'This was added by clicking the button!'});
-        },
+            NewMessage(),
+          ],
+        ),
       ),
     );
   }

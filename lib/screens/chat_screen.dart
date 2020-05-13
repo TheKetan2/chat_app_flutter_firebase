@@ -8,7 +8,7 @@ class ChatScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('FlutterChat'),
+        title: Text("Flutter Chat"),
         actions: [
           DropdownButton(
             icon: Icon(

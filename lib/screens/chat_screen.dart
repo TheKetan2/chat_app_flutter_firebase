@@ -7,6 +7,7 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('FlutterChat'),
         actions: [
           DropdownButton(
@@ -37,7 +38,9 @@ class ChatScreen extends StatelessWidget {
         ],
       ),
       body: StreamBuilder(
-        stream: Firestore.instance.collection('/chats').snapshots(),
+        stream: Firestore.instance
+            .collection('chats/46nlhmiRIajSGjMKxpdo/messages')
+            .snapshots(),
         builder: (ctx, streamSnapshot) {
           if (streamSnapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -58,7 +61,7 @@ class ChatScreen extends StatelessWidget {
         child: Icon(Icons.add),
         onPressed: () {
           Firestore.instance
-              .collection('/chats')
+              .collection('chats/46nlhmiRIajSGjMKxpdo/messages')
               .add({'text': 'This was added by clicking the button!'});
         },
       ),

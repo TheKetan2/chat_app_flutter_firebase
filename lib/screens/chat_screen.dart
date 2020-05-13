@@ -37,6 +37,16 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
+      /*
+      
+      Column(
+        children: <Widget>[
+          Expanded(
+            child: Messages(),
+          ),
+        ],
+      ),
+       */
       body: StreamBuilder(
         stream: Firestore.instance
             .collection('chats/46nlhmiRIajSGjMKxpdo/messages')

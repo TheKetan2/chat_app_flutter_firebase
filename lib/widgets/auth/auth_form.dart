@@ -50,6 +50,14 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  CircleAvatar(
+                    radius: 40.0,
+                  ),
+                  FlatButton.icon(
+                    onPressed: () {},
+                    icon: Icon(Icons.image),
+                    label: Text("Add Image"),
+                  ),
                   TextFormField(
                     key: ValueKey('email'),
                     validator: (value) {

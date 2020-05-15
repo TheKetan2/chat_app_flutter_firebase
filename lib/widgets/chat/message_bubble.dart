@@ -1,14 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
   final String message;
   final bool isMe;
   final Key key;
+  final String userId, userName;
 
   const MessageBubble({
     this.isMe,
     this.key,
     this.message,
+    this.userId,
+    this.userName,
   });
 
   @override
@@ -47,11 +51,37 @@ class MessageBubble extends StatelessWidget {
                     ),
             ),
           ),
-          child: Text(
-            message,
-            style: TextStyle(
-              color: isMe ? Colors.black : Colors.white,
-            ),
+          child: Column(
+            crossAxisAlignment:
+                isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: <Widget>[
+              // FutureBuilder(
+              //     future: Firestore.instance
+              //         .collection("users")
+              //         .document(userId)
+              //         .get(),
+              //     builder: (ctx, snapShot) {
+              //       if (snapShot.connectionState == ConnectionState.waiting) {
+              //         return Text("Loading...");
+              //       }
+              //       print(userName);
+              //       return
+              Text(
+                userName,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: isMe ? Colors.black : Colors.white,
+                ),
+              ),
+              // }),
+              Text(
+                message,
+                style: TextStyle(
+                  color: isMe ? Colors.black : Colors.white,
+                ),
+                textAlign: isMe ? TextAlign.end : TextAlign.start,
+              ),
+            ],
           ),
         ),
       ],

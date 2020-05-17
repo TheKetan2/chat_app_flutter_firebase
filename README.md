@@ -1,16 +1,14 @@
-# chat_app_flutter_firebase
+#Chat App with Flutter and Firebase
 
-A new Flutter project.
+It's a realtime chat application using Firebase as a backend and it uses Firebase Cloud store for storing messages, Firebase Auth for email based login, Firebase Storage for storing prfile images and firebase messaging for push notification.
+It was a project finished while following Max's Flutter course from Udemy.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Packages Used
+- cloud_firestore: ^0.13.5
+- firebase_auth: ^0.16.0
+- firebase_core: ^0.4.4 
+- firebase_storage: ^3.1.5
+- firebase_messaging: ^6.0.15
+- image_picker: ^0.6.5+3
+  
+![alt text](assets/screen.gif)

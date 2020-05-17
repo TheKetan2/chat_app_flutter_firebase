@@ -11,4 +11,4 @@ It was a project finished while following Max's Flutter course from Udemy.
 - firebase_messaging: ^6.0.15
 - image_picker: ^0.6.5+3
   
-![alt text](assets/screen.gif)
+![alt text](assets/screeen.gif)

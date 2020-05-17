@@ -1,4 +1,4 @@
-#Chat App with Flutter and Firebase
+# Chat App with Flutter and Firebase
 
 It's a realtime chat application using Firebase as a backend and it uses Firebase Cloud store for storing messages, Firebase Auth for email based login, Firebase Storage for storing prfile images and firebase messaging for push notification.
 It was a project finished while following Max's Flutter course from Udemy.
